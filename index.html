@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новые Квартирные Решения</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <header class="hero">
+            <h1>Новые <br>квартирные <br>решения</h1>
+            <nav>
+                <a href="#main-part">ГЛАВНАЯ</a>
+                <a href="#services">УСЛУГИ</a>
+                <a href="#gallery">ПРОЕКТЫ</a>
+                <a href="#contact">КОНТАКТЫ</a>
+                <button onclick="window.location.href='tel:+998904743239'">ПОЗВОНИТЬ</button>
+            </nav>
+        </header>
+        <!-- main part -->
+        <section id="main-part" class="intro">
+            <h1>Новые квартирные решения</h1>
+            <p>Надежные дома для спокойной жизни</p>
+        </section>
+        <!-- services -->
+        <section id="services" class="services">
+            <h3>Наши услуги</h3>
+            <ul>
+                <li>Ремонт под ключ</li>
+                <li>Ремонт и отделка кухни</li>
+                <li>Ремонт ванной и санузла</li>
+                <li>Создание интерьера</li>
+                <li>Настил пола</li>
+            </ul>
+            <button>ПОДРОБНЕЕ</button>
+            <div class="advantages">
+                <div>
+                    <img src="exp.svg" alt="опыт">
+                    <p>Большой опыт</p>
+                </div>
+                <div>
+                    <img src="team.svg" alt="команда">
+                    <p>Профессиональная команда</p>
+                </div>
+                <div>
+                    <img src="quality.svg" alt="качество">
+                    <p>Гарантия качества</p>
+                </div>
+                <div>
+                    <img src="responsibility.svg" alt="надежность">
+                    <p>Ответственность и надежность</p>
+                </div>
+            </div>
+            <div class="about">
+                <h4>О нас</h4>
+                <img class="fade-in" src="work1.avif" alt="">
+                <p>
+                    Это текст. Расскажите посетителям сайта о себе. Здесь будет удачно смотреться текст о вашей компании
+                    и услугах.
+                </p>
+                <img class="fade-in" src="work2.avif" alt="Работаем">
+            </div>
+        </section>
+        <!-- reviews -->
+        <section id="reviews" class="reviews">
+            <h3>Отзывы</h3>
+            <blockquote>
+                «Это отзыв. Напишите хороший отзыв о вашей компании и услугах.»<br><span>— ЕдимВместе</span>
+            </blockquote>
+            <blockquote>
+                «Это отзыв. Напишите хороший отзыв о вашей компании и услугах.»<br><span>— ЕдимВместе</span>
+            </blockquote>
+        </section>
+        <!-- contacts -->
+        <section id="contact" class="contact">
+            <h3>Связаться</h3>
+            <p>ул. Арбат, 1а, Москва, 119019, Россия</p>
+            <p><a class="mailto" href="mailto:alikulovabdullo83@gmail.com">alikulovabdullo83@gmail.com</a></p>
+            <p>+998 (90) 474-32-39</p>
+            <form action="#">
+                <input type="text" placeholder="Имя" required>
+                <input type="text" placeholder="Фамилия">
+                <input type="email" placeholder="Эл. почта *" required>
+                <input type="tel" placeholder="Телефон">
+                <textarea placeholder="Сообщение"></textarea>
+                <button type="submit">ОТПРАВИТЬ</button>
+            </form>
+        </section>
+        <!-- footer -->
+        <footer>
+            <p>© 2025 Новые квартирные решения.</p>
+        </footer>
+    </div>
+    <script>
+        // animation
+        const fadeImages = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeImages.forEach(img => {
+            img.style.opacity = 0;
+            img.style.transform = 'translateY(20px)';
+            img.style.transition = 'all 0.8s ease-out';
+            observer.observe(img);
+        });
+
+        // scroll smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
